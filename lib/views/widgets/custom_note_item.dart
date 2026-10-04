@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CustomContainerItem extends StatelessWidget {
-  const CustomContainerItem({super.key, required this.color});
+class CustomNoteItem extends StatelessWidget {
+  const CustomNoteItem({super.key, required this.color});
   final Color color;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      margin: EdgeInsets.only(top: 10, bottom: 5),
       padding: EdgeInsets.only(bottom: 24, top: 24),
       decoration: BoxDecoration(
         color: color,
