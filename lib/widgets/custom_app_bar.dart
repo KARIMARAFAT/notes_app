@@ -13,7 +13,7 @@ class CustomAppBar extends StatelessWidget {
         CircleAvatar(
           radius: 24,
           backgroundColor: Color(0xff3C3C3C),
-          child: Icon(icon, size: 30),
+          child: IconButton(onPressed: () {}, icon: Icon(icon, size: 30)),
         ),
       ],
     );
