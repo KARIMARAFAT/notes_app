@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/views/widgets/custom_note_item.dart';
+import 'package:notes_app/widgets/custom_note_item.dart';
 
 class NotesListViewBuilder extends StatelessWidget {
   const NotesListViewBuilder({super.key, required this.availablecolors});
