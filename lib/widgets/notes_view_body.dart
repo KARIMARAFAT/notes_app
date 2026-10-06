@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/cubit/notes_cubit.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/notes_list_view_builder.dart';
 
-class NotesViewBody extends StatelessWidget {
-  NotesViewBody({super.key});
-  final List<Color> availablecolors = [
-    Color(0xffEDBC75),
-    Color(0xffE7E896),
-    Color(0xff76D6EE),
-    Color(0xffDA9DDD),
+class NotesViewBody extends StatefulWidget {
+  const NotesViewBody({super.key});
+
+  @override
+  State<NotesViewBody> createState() => _NotesViewBodyState();
+}
+
+class _NotesViewBodyState extends State<NotesViewBody> {
+  @override
+  void initState() {
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+    super.initState();
+  }
+
+  final List<int> availablecolors = [
+    0xffEDBC75,
+    0xffE7E896,
+    0xff76D6EE,
+    0xffDA9DDD,
   ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -18,9 +33,7 @@ class NotesViewBody extends StatelessWidget {
         child: Column(
           children: [
             CustomAppBar(title: 'Notes', icon: Icons.search),
-            Expanded(
-              child: NotesListViewBuilder(availablecolors: availablecolors),
-            ),
+            Expanded(child: NotesListViewBuilder()),
           ],
         ),
       ),
