@@ -12,23 +12,26 @@ class AddNoteBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddNoteCubit(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: BlocConsumer<AddNoteCubit, AddNoteCubitState>(
-          listener: (context, state) {
-            if (state is AddNoteCubitSuccess) {
-              Navigator.pop(context);
-            } else if (state is AddNoteCubitFailure) {
-              print('failed ${state.errorMessage}');
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
+      child: BlocConsumer<AddNoteCubit, AddNoteCubitState>(
+        listener: (context, state) {
+          if (state is AddNoteCubitSuccess) {
+            Navigator.pop(context);
+          } else if (state is AddNoteCubitFailure) {
+            print('failed ${state.errorMessage}');
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is AddNoteCubitLoading ? true : false,
+            child: ModalProgressHUD(
               inAsyncCall: state is AddNoteCubitLoading ? true : false,
-              child: SingleChildScrollView(child: AddFormNote()),
-            );
-          },
-        ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: SingleChildScrollView(child: AddFormNote()),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
