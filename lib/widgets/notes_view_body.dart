@@ -18,13 +18,6 @@ class _NotesViewBodyState extends State<NotesViewBody> {
     super.initState();
   }
 
-  final List<int> availablecolors = [
-    0xffEDBC75,
-    0xffE7E896,
-    0xff76D6EE,
-    0xffDA9DDD,
-  ];
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
