@@ -35,7 +35,7 @@ class CustomTextField extends StatelessWidget {
   }
 }
 
-// ignore: strict_top_level_inference
+// ignore: non_constant_identifier_names, avoid_types_as_parameter_names, strict_top_level_inference
 OutlineInputBorder buildBorder([Color]) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
