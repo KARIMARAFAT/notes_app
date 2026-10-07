@@ -19,12 +19,6 @@ class _AddFormNoteState extends State<AddFormNote> {
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
-  final List<int> availablecolors = [
-    0xffEDBC75,
-    0xffE7E896,
-    0xff76D6EE,
-    0xffDA9DDD,
-  ];
   @override
   Widget build(BuildContext context) {
     return Form(
